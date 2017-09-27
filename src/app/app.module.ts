@@ -10,6 +10,7 @@ import { SendRewardComponent } from './send-reward/send-reward.component';
 import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
 import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
 import { UserRewardsInventoryComponent } from './user-rewards-inventory/user-rewards-inventory.component';
+import { RedeemRewardsComponent } from './redeem-rewards/redeem-rewards.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserRewardsInventoryComponent } from './user-rewards-inventory/user-rew
     SendRewardComponent,
     RewardInboxComponent,
     ApproveRewardComponent,
-    UserRewardsInventoryComponent
+    UserRewardsInventoryComponent,
+    RedeemRewardsComponent
   ],
   imports: [
     BrowserModule, 
