@@ -6,12 +6,22 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { SendRewardComponent } from './send-reward/send-reward.component';
+import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
+import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
+import { UserRewardsInventoryComponent } from './user-rewards-inventory/user-rewards-inventory.component';
+import { RedeemRewardsComponent } from './redeem-rewards/redeem-rewards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    SendRewardComponent,
+    RewardInboxComponent,
+    ApproveRewardComponent,
+    UserRewardsInventoryComponent,
+    RedeemRewardsComponent
   ],
   imports: [
     BrowserModule, 
