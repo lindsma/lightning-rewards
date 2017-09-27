@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MdDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -25,9 +28,16 @@ import { RedeemRewardsComponent } from './dashboard/user-rewards-inventory/redee
   ],
   imports: [
     BrowserModule, 
-    AppRoutingModule
+    AppRoutingModule,
+    MdDialogModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  entryComponents: [
+    RewardInboxComponent,
+    ApproveRewardComponent,
+    RedeemRewardsComponent
+  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

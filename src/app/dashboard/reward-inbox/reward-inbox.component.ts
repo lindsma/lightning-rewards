@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-reward-inbox',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RewardInboxComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MdDialogRef<RewardInboxComponent>, @Inject(MD_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+  }
+
+  onCloseClick(): void {
+    this.dialogRef.close();
   }
 
 }
