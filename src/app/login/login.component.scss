@@ -1,9 +1,39 @@
 @import '../../scss/variables.scss';
 
-body {
-    background: $primary;
+.panel-primary {
+    background: $secondary;
+    width: 450px;
+    height: 300px;
+    padding: 30px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-a {
-    background: $white;
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btn-william {
+    color: $third;
+    width: 100px;
+    align-self: center;
+}
+
+.email, .password {
+    align-self: center;
+}
+
+label {
+    display: block;
+    color: white;
+}
+
+.fa-bolt {
+    color: #F8F80E;
+    font-size: 17pt;
+    
 }
