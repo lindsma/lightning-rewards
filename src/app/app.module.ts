@@ -27,7 +27,7 @@ import { RedeemRewardsComponent } from './dashboard/user-rewards-inventory/redee
     RedeemRewardsComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     AppRoutingModule,
     MdDialogModule,
     BrowserAnimationsModule
