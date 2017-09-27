@@ -7,13 +7,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SendRewardComponent } from './send-reward/send-reward.component';
+import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    SendRewardComponent
+    SendRewardComponent,
+    RewardInboxComponent
   ],
   imports: [
     BrowserModule, 
