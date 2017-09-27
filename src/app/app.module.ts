@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SendRewardComponent } from './send-reward/send-reward.component';
 import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
 import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
+import { UserRewardsInventoryComponent } from './user-rewards-inventory/user-rewards-inventory.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ApproveRewardComponent } from './approve-reward/approve-reward.componen
     LoginComponent,
     SendRewardComponent,
     RewardInboxComponent,
-    ApproveRewardComponent
+    ApproveRewardComponent,
+    UserRewardsInventoryComponent
   ],
   imports: [
     BrowserModule, 
