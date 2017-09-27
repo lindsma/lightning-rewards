@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { SendRewardComponent } from './send-reward/send-reward.component';
-import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
-import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
-import { UserRewardsInventoryComponent } from './user-rewards-inventory/user-rewards-inventory.component';
-import { RedeemRewardsComponent } from './redeem-rewards/redeem-rewards.component';
+import { SendRewardComponent } from './dashboard/send-reward/send-reward.component';
+import { RewardInboxComponent } from './dashboard/reward-inbox/reward-inbox.component';
+import { ApproveRewardComponent } from './dashboard/approve-reward/approve-reward.component';
+import { UserRewardsInventoryComponent } from './dashboard/user-rewards-inventory/user-rewards-inventory.component';
+import { RedeemRewardsComponent } from './dashboard/user-rewards-inventory/redeem-rewards/redeem-rewards.component';
 
 @NgModule({
   declarations: [
