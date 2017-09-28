@@ -8,28 +8,31 @@ import { UsersService } from './shared/users.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+  user = {
+    email: '',
+    password: 'training'
+  }
 
-  welcomed = false;
+  welcomed: boolean
+
+  headers = {
+    'Content-Type': 'application/json',
+  }
 
   constructor( public usersService: UsersService, private router: Router ) { }
 
   ngOnInit() {
+    if (!localStorage.getItem('loggedIn')) {
+      this.router.navigate(['/']);
+      this.welcomed = false;
+    } else {
+      this.welcomed = true;
+    }
   }
 
   login() {
 
-  console.log('true');
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-
-    const user = {
-      email: 'ladams@reliaslearning.com',
-      password: 'training'
-    };
-
-    this.usersService.login(user, headers).subscribe(res => {
+    this.usersService.login(this.user, this.headers).subscribe(res => {
       this.welcomed = true;
       localStorage.setItem('loggedIn', JSON.stringify(res));
       this.router.navigate(['/dashboard']);
@@ -39,6 +42,7 @@ export class AppComponent implements OnInit {
   logout() {
     this.welcomed = false;
     localStorage.removeItem('loggedIn');
+    this.router.navigate(['/']);
   }
 
 }
