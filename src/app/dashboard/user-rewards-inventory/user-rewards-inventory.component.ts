@@ -29,4 +29,8 @@ export class UserRewardsInventoryComponent implements OnInit {
     })
   }
 
+  calculateProgress() {
+
+  }
+
 }
