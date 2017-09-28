@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   test: string;
   user: any;
   dashboardInfo: any;
+  loading = true;
 
   constructor(public dialog: MdDialog, public cardManagementService: CardManagementService, private dashboardService: DashboardService) { }
 
@@ -25,6 +26,7 @@ export class DashboardComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('loggedIn'));
     this.dashboardService.getDashboardInfo(this.user.Id).subscribe(res => { 
       this.dashboardInfo = res;
+      this.loading = false;
     });
   }
 
