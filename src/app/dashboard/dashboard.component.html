@@ -1,3 +1,20 @@
-<button type="button" (click)="openMyInboxModal()">My Inbox</button>
-<button type="button" (click)="openSendRewardModal()">Send Reward</button>
-<button type="button" (click)="openApproveRewardModal()">Approve Rewards</button>
+ <div class="row">
+    <div class="col-md-7 d-flex justify-content-center flex-column">
+        <app-user-rewards-inventory class="align-self-center"></app-user-rewards-inventory>
+        <div class="specials align-self-center mt-3">
+            <h6 class="text-center">September Specials</h6>
+            <ul class="list-unstyled">
+                <li><i class="fa fa-plane mr-2" aria-hidden="true"></i>$50 for Gas / Air Travel</li>
+                <li><i class="fa fa-amazon mr-2" aria-hidden="true"></i>$50 for Amazon</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-5 d-flex flex-column justify-content-between">
+        <button type="button" md-raised-button class="modal-btn my-4 w-75" (click)="openMyInboxModal()">
+            <h5>My Inbox</h5> 
+            <p>You have 2 Pending Rewards Cards</p>
+        </button>
+        <button type="button" md-raised-button class="modal-btn mb-4 w-75" (click)="openSendRewardModal()">Send Reward</button>
+        <button type="button" md-raised-button class="modal-btn w-75" (click)="openApproveRewardModal()">Approve Rewards</button>
+    </div>
+</div>

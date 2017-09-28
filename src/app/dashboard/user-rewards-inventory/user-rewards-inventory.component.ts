@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+
+import { RedeemRewardsComponent } from './redeem-rewards/redeem-rewards.component';
 
 @Component({
   selector: 'app-user-rewards-inventory',
@@ -6,10 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-rewards-inventory.component.scss']
 })
 export class UserRewardsInventoryComponent implements OnInit {
-
-  constructor() { }
+  
+  test: string;
+  
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+
+  openApproveRewardModal() {
+    let dialogRef = this.dialog.open(RedeemRewardsComponent, {
+      width: '500px', 
+      data: { test: 'test string', name: 'lindsey'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('closed!');
+      this.test = result;
+    })
   }
 
 }
