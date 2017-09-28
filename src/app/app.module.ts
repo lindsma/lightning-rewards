@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MdDialogModule, MdButtonModule, MdSelectModule, MdIconModule, MdAutocompleteModule, MdProgressBarModule, MdExpansionModule, MdFormFieldModule, MdInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +44,7 @@ import { CardManagementService } from './shared/card-management.service';
     MdInputModule,
     MdSelectModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   entryComponents: [
     RewardInboxComponent,
