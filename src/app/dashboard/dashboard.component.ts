@@ -33,9 +33,8 @@ export class DashboardComponent implements OnInit {
   }
 
   openSendRewardModal() {
-    let dialogRef = this.dialog.open(RewardInboxComponent, {
-      width: '500px', 
-      data: { test: 'test string', name: 'lindsey'}
+    let dialogRef = this.dialog.open(SendRewardComponent, {
+      width: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

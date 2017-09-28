@@ -1,3 +1,21 @@
-<p>
-  send-reward works!
-</p>
+<h2 md-dialog-title>Send Reward</h2>
+<div class="form">
+  <md-dialog-content class="d-flex flex-column">
+    <label for="recipient">Recipient</label>
+    <input id="recipient" type="text" placeholder="recipient name">
+    <label class="mt-2" for="message">Message</label>
+    <textarea id="message" rows="3" placeholder="type your message here"></textarea>
+    <label class="mt-2" for="manager">Manager for Approval</label>
+    <select name="manager" id="manager">
+      <option value="Dave Long">Dave Long</option>
+    </select>
+  </md-dialog-content>
+</div>
+<md-dialog-actions class="d-flex justify-content-center">
+  <button md-button>
+    <a>Send for Approval</a>
+  </button> 
+  <button md-button md-dialog-close>Close</button>
+</md-dialog-actions>
+
+
