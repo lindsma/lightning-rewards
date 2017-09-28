@@ -1,12 +1,23 @@
 @import '../../scss/variables.scss';
 
-.panel-primary {
-    background: $primary;
-    width: 450px;
-    height: 300px;
+.landingbg {
+    background: url('../../assets/betterbh.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+.splash {
+    background: linear-gradient($primary, white);
+    width: 350px;
+    height: 275px;
     padding: 30px;
     margin: 50px auto;
-    display: flex;
     flex-direction: column;
-    color: white;
+    color: $third;
+    position: relative;
 }
