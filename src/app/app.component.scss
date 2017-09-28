@@ -1,0 +1,15 @@
+@import '../scss/variables.scss';
+
+.header {
+    height: 50px;
+    background-color: $fourth;
+}
+
+.brand {
+    font-size: 18pt;
+    color: $primary;
+}
+
+.form {
+    color: white;
+}
