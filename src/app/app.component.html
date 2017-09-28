@@ -3,7 +3,7 @@
         <i class="fa fa-bolt mr-2" aria-hidden="true"></i>
         Lightning Rewards
     </label>
-    <form class="d-flex align-items-center" *ngIf="!welcomed">
+    <div class="d-flex align-items-center" *ngIf="!welcomed">
         <div class="email pl-3 px-0">
             <label for="email" class="mb-0">email</label>
             <input id="email" type="text" placeholder="youremail@email.com">
@@ -15,7 +15,7 @@
         <button md-raised-button (click)="login()" class="align-self-center mr-3">
             <a class="align-self-center"><i class="fa fa-bolt mr-2" aria-hidden="true"></i>Login</a>
         </button>
-    </form>
+    </div>
     <div class="form d-flex d-row ml-auto p-2" *ngIf="welcomed">
         <button md-raised-button class="d-flex align-items-center mr-3" (click)="logout()">
             <a class="align-self-center"><i class="fa fa-bolt mr-2" aria-hidden="true"></i>Logout</a>
