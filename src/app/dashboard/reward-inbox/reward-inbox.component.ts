@@ -8,6 +8,8 @@ import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 })
 export class RewardInboxComponent implements OnInit {
 
+  scratched = false;
+
   constructor(public dialogRef: MdDialogRef<RewardInboxComponent>, @Inject(MD_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
@@ -15,6 +17,10 @@ export class RewardInboxComponent implements OnInit {
 
   onCloseClick(): void {
     this.dialogRef.close();
+  }
+
+  scratch() {
+    this.scratched = true;
   }
 
 }
