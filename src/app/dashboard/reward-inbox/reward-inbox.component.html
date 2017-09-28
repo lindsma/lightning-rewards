@@ -1,17 +1,17 @@
 <div class="d-flex justify-content-between">
-  <h2 md-dialog-title>My Inbox <span>( 1 of 2 )</span></h2>
+  <h2 md-dialog-title>My Inbox <span>( {{data.indexOf(currentCard) + 1}} of {{data.length}} )</span></h2>
 </div>
 <md-dialog-content class="d-flex justify-content-center">
   <div class="d-flex flex-column justify-content-between reward-card mb-2">
     <div class="reward-header">
       <h6 class="ml-2">Relias Learning</h6>
     </div>
-    <p class="mt-2 ml-2">From: <span>William</span></p>
-    <p class="ml-2">Lorem ipsum blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+    <p class="mt-2 ml-2">From: <span>{{currentCard.SenderName}}</span></p>
+    <p class="ml-2">{{currentCard.Message}}</p>
     <div class="letter-reveal d-flex flex-column align-items-center justify-content-center">
       <div [ngClass]="{'active': !scratched }" (click)="scratch()" class="pre-scratch"></div>
       <div [ngClass]="{'active': scratched }" class="post-scratch">
-        <p class="mb-0 align-self-center">S</p>
+        <p class="mb-0 align-self-center">{{currentCard.LetterValue}}</p>
       </div>
       <p class="mb-1 reveal"><span [ngClass]="{'active': !scratched }">Click to Reveal</span></p>
     </div>
@@ -19,5 +19,5 @@
 </md-dialog-content>
 <md-dialog-actions class="d-flex justify-content-center">
   <button md-button md-dialog-close>Close</button>
-  <button md-button>View Next Card <i class="ml-1 fa fa-chevron-right" aria-hidden="true"></i></button>
+  <button *ngIf="!((data.indexOf(currentCard) + 1) == data.length)" md-button (click)="nextCard()">View Next Card <i class="ml-1 fa fa-chevron-right" aria-hidden="true"></i></button>
 </md-dialog-actions>
