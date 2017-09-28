@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MdDialogModule } from '@angular/material';
+import { MdDialogModule, MdButtonModule, MdIconModule, MdAutocompleteModule, MdProgressBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -29,6 +29,10 @@ import { RedeemRewardsComponent } from './dashboard/user-rewards-inventory/redee
     BrowserModule,
     AppRoutingModule,
     MdDialogModule,
+    MdButtonModule,
+    MdIconModule,
+    MdAutocompleteModule,
+    MdProgressBarModule,
     BrowserAnimationsModule
   ],
   entryComponents: [
