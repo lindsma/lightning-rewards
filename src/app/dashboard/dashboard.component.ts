@@ -4,6 +4,7 @@ import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
 import { SendRewardComponent } from './send-reward/send-reward.component';
 import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
+import { CardManagementService } from '../shared/card-management.service';
 
 
 @Component({
@@ -15,12 +16,13 @@ export class DashboardComponent implements OnInit {
 
   test: string;
   
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MdDialog, public cardManagementService: CardManagementService) { }
 
   ngOnInit() {
   }
 
   openMyInboxModal() {
+    var pendingReceiptCardDetails = this.cardManagementService.getPendingReceiptCardDetails(localStorage.getItem('loggedIn')['Id']);
     let dialogRef = this.dialog.open(RewardInboxComponent, {
       width: '500px', 
       data: { test: 'test string', name: 'lindsey'}
