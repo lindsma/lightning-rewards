@@ -38,7 +38,8 @@ import { RedeemRewardsComponent } from './dashboard/user-rewards-inventory/redee
   entryComponents: [
     RewardInboxComponent,
     ApproveRewardComponent,
-    RedeemRewardsComponent
+    RedeemRewardsComponent,
+    SendRewardComponent
   ],
   providers: [ ],
   bootstrap: [AppComponent]
