@@ -6,45 +6,35 @@ import { Observable } from 'rxjs/Rx';
 export class CardManagementService {
 
   constructor(private http: Http) { }
+  
 
-  getPendingReceiptCardDetails(): Observable<any> {
-    return this.http.get('http://lightningrewards.azurewebsites.net/api/Cards/Pending/Receipt').do(res => {
-      console.log(res);
-    })
+  getPendingReceiptCardDetails(userId: any): Observable<any> {
+    return this.http.get(`http://lightningrewards.azurewebsites.net/api/Cards/Pending/Receipt?userId=${userId}`).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
-  getPendingApprovalCardDetails(): Observable<any> {
-    return this.http.get('http://lightningrewards.azurewebsites.net/api/Cards/Pending/Approval').do(res => {
-      console.log(res);
-    })
+  getPendingApprovalCardDetails(userId: any): Observable<any> {
+    return this.http.get(`http://lightningrewards.azurewebsites.net/api/Cards/Pending/Approval?userId=${userId}`).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
-  claimCard(cardId: any): Observable<any> {
-    return this.http.put('http://lightningrewards.azurewebsites.net/api/Cards/Claim', cardId).do(res => {
-      console.log(res);
-    })
+  claimCard(cardId: any, headers: any): Observable<any> {
+    return this.http.put(`http://lightningrewards.azurewebsites.net/api/Cards/Claim?cardId=${cardId}`, headers).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
-  approveCard(cardId: any): Observable<any> {
-    return this.http.put('http://lightningrewards.azurewebsites.net/api/Cards/Approve', cardId).do(res => {
-      console.log(res);
-    })
+  approveCard(cardId: any, headers: any): Observable<any> {
+    return this.http.put(`http://lightningrewards.azurewebsites.net/api/Cards/Approve?cardId=${cardId}`, headers).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
   sendCard(card: any): Observable<any> {
-    return this.http.post('http://lightningrewards.azurewebsites.net/api/Cards', card).do(res => {
-      console.log(res);
-    })
+    return this.http.post('http://lightningrewards.azurewebsites.net/api/Cards', card).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
-  redeemCard(card: any): Observable<any> {
-    return this.http.post('http://lightningrewards.azurewebsites.net/api/Cards/Redeem', card).do(res => {
-      console.log(res);
-    })
+  redeemCard(userId: any, headers: any): Observable<any> {
+    return this.http.put(`http://lightningrewards.azurewebsites.net/api/Cards/Redeem?userId=${userId}`, headers).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
-
-
-
-
-
 }

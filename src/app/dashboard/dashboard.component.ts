@@ -5,6 +5,7 @@ import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
 import { SendRewardComponent } from './send-reward/send-reward.component';
 import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
 import { DashboardService } from '../shared/dashboard.service';
+import { CardManagementService } from '../shared/card-management.service';
 
 
 @Component({
@@ -17,8 +18,8 @@ export class DashboardComponent implements OnInit {
   test: string;
   user: any;
   dashboardInfo: any;
-  
-  constructor(public dialog: MdDialog, private dashboardService: DashboardService) { }
+
+  constructor(public dialog: MdDialog, public cardManagementService: CardManagementService, private dashboardService: DashboardService) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('loggedIn'));
