@@ -2,17 +2,18 @@
   <h2 md-dialog-title>My Inbox <span>( 1 of 2 )</span></h2>
 </div>
 <md-dialog-content class="d-flex justify-content-center">
-  <div class="reward-card mb-2">
+  <div class="d-flex flex-column justify-content-between reward-card mb-2">
     <div class="reward-header">
       <h6 class="ml-2">Relias Learning</h6>
     </div>
     <p class="mt-2 ml-2">From: <span>William</span></p>
     <p class="ml-2">Lorem ipsum blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-    <div class="letter-reveal d-flex justify-content-center">
+    <div class="letter-reveal d-flex flex-column align-items-center justify-content-center">
       <div [ngClass]="{'active': !scratched }" (click)="scratch()" class="pre-scratch"></div>
       <div [ngClass]="{'active': scratched }" class="post-scratch">
         <p class="mb-0 align-self-center">S</p>
       </div>
+      <p class="mb-1 reveal"><span [ngClass]="{'active': !scratched }">Click to Reveal</span></p>
     </div>
   </div>
 </md-dialog-content>

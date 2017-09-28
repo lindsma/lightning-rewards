@@ -5,7 +5,7 @@ h2 span {
 
 .reward-card {
     border: 2px solid green;
-    height: 200px;
+    height: 225px;
     width: 350px;
 }
 
@@ -17,6 +17,19 @@ h2 span {
         color: white;
         line-height: 40px;
         letter-spacing: .1em;
+    }
+}
+
+.reveal {
+    height: 20px;
+}
+
+.reveal span {
+    font-size: 12px;
+    display: none;
+    
+    &.active {
+        display: block;
     }
 }
 
