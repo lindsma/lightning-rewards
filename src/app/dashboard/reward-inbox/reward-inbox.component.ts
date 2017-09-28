@@ -13,6 +13,7 @@ export class RewardInboxComponent implements OnInit {
   constructor(public dialogRef: MdDialogRef<RewardInboxComponent>, @Inject(MD_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    console.log(this.data);
   }
 
   onCloseClick(): void {

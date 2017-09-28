@@ -16,6 +16,7 @@ import { CardManagementService } from '../shared/card-management.service';
 export class DashboardComponent implements OnInit {
 
   test: string;
+  pendingReceiptCards: any;
   user: any;
   dashboardInfo: any;
 
@@ -29,14 +30,17 @@ export class DashboardComponent implements OnInit {
   }
 
   openMyInboxModal() {
-    let dialogRef = this.dialog.open(RewardInboxComponent, {
-      width: '500px', 
-      data: { test: 'test string', name: 'lindsey'}
+    this.cardManagementService.getPendingReceiptCardDetails(JSON.parse(localStorage.getItem('loggedIn')).Id).subscribe(res => {
+      this.pendingReceiptCards = res;
+      let dialogRef = this.dialog.open(RewardInboxComponent, {
+        width: '500px', 
+        data: this.pendingReceiptCards
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        this.test = result;
+      })
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.test = result;
-    })
   }
 
   openSendRewardModal() {
