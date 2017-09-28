@@ -10,7 +10,9 @@ export class UsersService {
   login(user: any, headersSend: any): Observable<any> {
     return this.http.post('http://lightningrewards.azurewebsites.net/api/Authentication',
       user,
-      new RequestOptions({ headers: headersSend }));
+      { headers: headersSend })
+      .map(res => res.json())
+      .catch(e => Observable.throw(e.json().errors));
   }
 
   getAllManagers(): Observable<any> {
