@@ -2,14 +2,18 @@
 
 .header {
     height: 50px;
-    background-color: $fourth;
+    background-color: $primary;
 }
 
 .brand {
     font-size: 18pt;
-    color: $primary;
+    color: $fourth;
 }
 
 .form {
     color: white;
+}
+
+.fa-bolt {
+    color: $fourth;
 }
