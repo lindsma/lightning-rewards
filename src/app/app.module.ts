@@ -42,7 +42,7 @@ import { CardManagementService } from './shared/card-management.service';
     MdFormFieldModule,
     MdInputModule,
     MdSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   entryComponents: [
     RewardInboxComponent,
@@ -50,7 +50,7 @@ import { CardManagementService } from './shared/card-management.service';
     RedeemRewardsComponent,
     SendRewardComponent
   ],
-  providers: [ 
+  providers: [
     UsersService,
     DashboardService,
     CardManagementService
