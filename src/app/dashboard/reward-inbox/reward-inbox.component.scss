@@ -22,14 +22,14 @@ h2 span {
 
 .reveal {
     height: 20px;
-}
 
-.reveal span {
-    font-size: 12px;
-    display: none;
-    
-    &.active {
-        display: block;
+    span {
+        font-size: 12px;
+        display: none;
+        
+        &.active {
+            display: block;
+        }
     }
 }
 

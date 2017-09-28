@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
@@ -7,10 +7,10 @@ export class UsersService {
 
   constructor(private http: Http) { }
 
-  login(user: any): Observable<any> {
-    return this.http.post('http://lightningrewards.azurewebsites.net/api/Authentication', user).do(res => {
-      console.log(res);
-    })
+  login(user: any, headersSend: any): Observable<any> {
+    return this.http.post('http://lightningrewards.azurewebsites.net/api/Authentication',
+      user,
+      new RequestOptions({ headers: headersSend }));
   }
 
   getAllManagers(): Observable<any> {
