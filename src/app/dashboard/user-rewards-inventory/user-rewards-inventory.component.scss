@@ -1,0 +1,21 @@
+:host {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+md-progress-bar {
+    height: 15px;
+}
+
+.letter {
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
