@@ -23,10 +23,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (!localStorage.getItem('loggedIn')) {
-      this.router.navigate(['/']);
       this.welcomed = false;
+      this.router.navigate(['/']);
     } else {
       this.welcomed = true;
+      if (this.router.url === '/') {
+        console.log('in');
+        this.router.navigate(['/dashboard']);
+      }
     }
   }
 
