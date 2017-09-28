@@ -7,13 +7,16 @@ export class CardManagementService {
 
   constructor(private http: Http) { }
 
-  getPendingReceiptCardDetails(): Observable<any> {
-    return this.http.get('http://lightningrewards.azurewebsites.net/api/Cards/Pending/Receipt').do(res => {
-      console.log(res);
-    })
+  getPendingReceiptCardDetails(userId: any): Observable<any> {
+    let params = new URLSearchParams();
+    params.set('userId', userId);
+    return this.http.get('http://lightningrewards.azurewebsites.net/api/Cards/Pending/Receipt', {
+      search : params
+    }).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
-  getPendingApprovalCardDetails(): Observable<any> {
+  getPendingApprovalCardDetails(userId: any): Observable<any> {
     return this.http.get('http://lightningrewards.azurewebsites.net/api/Cards/Pending/Approval').do(res => {
       console.log(res);
     })
