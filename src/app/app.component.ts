@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    
+
   console.log('true');
     const headers = {
       'Content-Type': 'application/json',
@@ -30,15 +30,15 @@ export class AppComponent implements OnInit {
     };
 
     this.usersService.login(user, headers).subscribe(res => {
-      console.log(res);
       this.welcomed = true;
+      localStorage.setItem('loggedIn', JSON.stringify(res));
       this.router.navigate(['/dashboard']);
-
     });
   }
 
   logout() {
     this.welcomed = false;
+    localStorage.removeItem('loggedIn');
   }
 
 }
