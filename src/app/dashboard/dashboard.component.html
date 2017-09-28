@@ -2,7 +2,7 @@
 </div> 
 <div *ngIf="!loading" class="row mt-5">
     <div class="col-md-7 d-flex justify-content-center flex-column">
-        <app-user-rewards-inventory class="align-self-center"></app-user-rewards-inventory>
+        <app-user-rewards-inventory [dashboardInfo]="dashboardInfo" class="align-self-center"></app-user-rewards-inventory>
         <div class="specials align-self-center">
             <h6 class="text-center">September Specials</h6>
             <ul class="list-unstyled">
