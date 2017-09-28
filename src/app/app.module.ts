@@ -18,6 +18,7 @@ import { RedeemRewardsComponent } from './dashboard/user-rewards-inventory/redee
 import { UsersService } from './shared/users.service';
 import { DashboardService } from './shared/dashboard.service';
 import { CardManagementService } from './shared/card-management.service';
+import { DashboardResolve } from './shared/dashboard.resolve';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CardManagementService } from './shared/card-management.service';
   providers: [
     UsersService,
     DashboardService,
-    CardManagementService
+    CardManagementService,
+    DashboardResolve
   ],
   bootstrap: [AppComponent]
 })

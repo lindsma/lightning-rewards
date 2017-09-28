@@ -7,10 +7,10 @@ export class DashboardService {
 
   constructor(private http: Http) { }
 
-  getDashboardInfo(): Observable<any> {
-    return this.http.get('http://lightningrewards.azurewebsites.net/api/Dashboard').do(res => {
-      console.log(res);
-    })
+  getDashboardInfo(userId: number): Observable<any> {
+    return this.http.get(`http://lightningrewards.azurewebsites.net/api/Dashboard?userId=${userId}`)
+    .map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
 }

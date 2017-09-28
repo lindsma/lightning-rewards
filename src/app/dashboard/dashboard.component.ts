@@ -4,6 +4,7 @@ import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
 import { SendRewardComponent } from './send-reward/send-reward.component';
 import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
+import { DashboardService } from '../shared/dashboard.service';
 
 
 @Component({
@@ -14,10 +15,16 @@ import { ApproveRewardComponent } from './approve-reward/approve-reward.componen
 export class DashboardComponent implements OnInit {
 
   test: string;
+  user: any;
+  dashboardInfo: any;
   
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MdDialog, private dashboardService: DashboardService) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('loggedIn'));
+    this.dashboardService.getDashboardInfo(this.user.Id).subscribe(res => { 
+      this.dashboardInfo = res;
+    });
   }
 
   openMyInboxModal() {
@@ -27,7 +34,6 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('closed!');
       this.test = result;
     })
   }
@@ -38,7 +44,6 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('closed!');
       this.test = result;
     })
   }
@@ -50,7 +55,6 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('closed!');
       this.test = result;
     })
   }
