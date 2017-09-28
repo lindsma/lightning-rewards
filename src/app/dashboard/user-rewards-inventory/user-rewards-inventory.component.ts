@@ -11,13 +11,13 @@ import { RedeemRewardsComponent } from './redeem-rewards/redeem-rewards.componen
 export class UserRewardsInventoryComponent implements OnInit {
   
   test: string;
-  
+
   constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
   }
 
-  openApproveRewardModal() {
+  openRedeemRewardsModal() {
     let dialogRef = this.dialog.open(RedeemRewardsComponent, {
       width: '500px', 
       data: { test: 'test string', name: 'lindsey'}
