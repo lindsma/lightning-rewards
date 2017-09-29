@@ -45,7 +45,7 @@ export class UserRewardsInventoryComponent implements OnInit {
       countArray.push(this.dashboardInfo.Letters[letter]);
     }
 
-    if (countArray.length) {
+    if (countArray.length === 6) {
       this.totalSets = countArray.reduce((a, b) => {
         return Math.min(a, b);
       });
