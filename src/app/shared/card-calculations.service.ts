@@ -7,12 +7,13 @@ export class CardCalculationsService {
 
   calculateProgress(dashboardInfo: any, totalSets: number) {
     let countArray = [];
+    var count;
     console.log(dashboardInfo);
     console.log(totalSets);
     for (var letter in dashboardInfo.Letters) {
-      dashboardInfo.Letters[letter] = dashboardInfo.Letters[letter] - totalSets;
+      count = dashboardInfo.Letters[letter] - totalSets;
 
-      if (dashboardInfo.Letters[letter] > 0) {
+      if (count > 0) {
         countArray.push(letter);
       }
     }
