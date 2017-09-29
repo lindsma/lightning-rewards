@@ -17,6 +17,9 @@
             <p class="mb-0">You have <span>{{dashboardInfo.UnclaimedCards}}</span> Pending Rewards Cards</p>
         </button>
         <button type="button" md-raised-button class="modal-btn w-75" (click)="openSendRewardModal()">Send Reward</button>
-        <button *ngIf="isManager" type="button" md-raised-button class="modal-btn w-75" (click)="openApproveRewardModal()">Approve Rewards</button>
+        <button *ngIf="isManager" [disabled]="dashboardInfo.UnapprovedCards === 0" type="button" md-raised-button class="modal-btn w-75" (click)="openApproveRewardModal()">
+            <h5>Approve Rewards</h5>
+            <p class="mb-0">You have <span>{{dashboardInfo.UnapprovedCards}}</span> Cards Pending Approval</p>
+        </button>
     </div>
 </div>
