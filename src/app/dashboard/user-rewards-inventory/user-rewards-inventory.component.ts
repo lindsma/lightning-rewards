@@ -35,7 +35,16 @@ export class UserRewardsInventoryComponent implements OnInit {
   }
 
   calculateProgress() {
+    let countArray = [];
+    for (var letter in this.dashboardInfo.Letters) {
+      this.dashboardInfo.Letters[letter] = this.dashboardInfo.Letters[letter] - this.totalSets;
 
+      if (this.dashboardInfo.Letters[letter] > 0) {
+        countArray.push(letter);
+      }
+    }
+
+    this.progress = Math.round((countArray.length/6) * 100);
   }
 
   calculateTotalSets() {
