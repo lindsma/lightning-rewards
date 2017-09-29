@@ -1,5 +1,14 @@
-<h2 md-dialog-title>Redeem Rewards</h2>
+<h2 md-dialog-title *ngIf="!confirmationView">Redeem Rewards</h2>
+<h2 md-dialog-title *ngIf="confirmationView">Confirmation Code</h2>
+<md-dialog-content>
+  <p *ngIf="!confirmationView">You have {{data}} <span *ngIf="data === 1">set</span><span *ngIf="data > 1">sets</span> available to redeem. Would you like to redeem <span *ngIf="data === 1">it</span><span *ngIf="data > 1">one</span> now?</p>
+  <div *ngIf="confirmationView">
+    <h3>{{confirmationCode}}</h3>
+    <p class="text-center">Please submit this confirmation code in Concur</p>
+  </div>
+</md-dialog-content>
 <md-dialog-actions class="d-flex justify-content-center">
-  <button md-button md-dialog-close>Close</button>
-  <button md-button>Redeem</button>
+  <button md-button md-dialog-close>No</button>
+  <button md-button (click)="redeem()">Yes</button>
+  <button *ngIf="confirmationView" md-button md-dialog-close>Close</button>
 </md-dialog-actions>

@@ -26,11 +26,11 @@ export class UserRewardsInventoryComponent implements OnInit {
   openRedeemRewardsModal() {
     let dialogRef = this.dialog.open(RedeemRewardsComponent, {
       width: '500px', 
-      data: { test: 'test string', name: 'lindsey'}
+      data: this.totalSets
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.test = result;
+      this.calculateTotalSets();
     })
   }
 
