@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   }
 
   welcomed: boolean;
+  name: string;
 
   headers = {
     'Content-Type': 'application/json',
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/']);
     } else {
       this.welcomed = true;
+      this.name = JSON.parse(localStorage.getItem('loggedIn')).Name;
       if (this.router.url === '/') {
         this.router.navigate(['/dashboard']);
       }
@@ -38,9 +40,11 @@ export class AppComponent implements OnInit {
     if (this.user.password === 'training') {
       this.usersService.login(this.user, this.headers).subscribe(res => {
         this.welcomed = true;
+        this.name = res.FirstName.toLowerCase();
         const loggedIn = {
           Id: res.Id,
-          IsManager: res.IsManager
+          IsManager: res.IsManager,
+          Name: this.name
         }
         localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
         this.router.navigate(['/dashboard']);

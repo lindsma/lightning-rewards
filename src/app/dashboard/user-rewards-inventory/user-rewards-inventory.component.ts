@@ -3,6 +3,7 @@ import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 import { RedeemRewardsComponent } from './redeem-rewards/redeem-rewards.component';
 import { DashboardComponent } from '../dashboard.component';
+import { CardCalculationsService } from '../../shared/card-calculations.service';
 
 @Component({
   selector: 'app-user-rewards-inventory',
@@ -12,11 +13,12 @@ import { DashboardComponent } from '../dashboard.component';
 export class UserRewardsInventoryComponent implements OnInit {
 
   @Input() dashboardInfo: any;
+  @Input() progress: number;
   test: string;
   totalSets: number;
-  progress: number;
+  
 
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MdDialog, public cardCalculationsService: CardCalculationsService) { }
 
   ngOnInit() {
     this.calculateTotalSets();
@@ -35,32 +37,10 @@ export class UserRewardsInventoryComponent implements OnInit {
   }
 
   calculateProgress() {
-    let countArray = [];
-    for (var letter in this.dashboardInfo.Letters) {
-      this.dashboardInfo.Letters[letter] = this.dashboardInfo.Letters[letter] - this.totalSets;
-
-      if (this.dashboardInfo.Letters[letter] > 0) {
-        countArray.push(letter);
-      }
-    }
-
-    this.progress = Math.round((countArray.length/6) * 100);
+    this.progress = this.cardCalculationsService.calculateProgress(this.dashboardInfo, this.totalSets);
   }
 
   calculateTotalSets() {
-    let countArray = [];
-
-    for (var letter in this.dashboardInfo.Letters) {
-      countArray.push(this.dashboardInfo.Letters[letter]);
-    }
-
-    if (countArray.length === 6) {
-      this.totalSets = countArray.reduce((a, b) => {
-        return Math.min(a, b);
-      });
-    } else {
-      this.totalSets = 0;
-    }
+    this.totalSets = this.cardCalculationsService.calculateTotalSets(this.dashboardInfo);
   }
-
 }

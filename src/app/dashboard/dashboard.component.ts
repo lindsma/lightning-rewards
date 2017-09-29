@@ -6,6 +6,7 @@ import { SendRewardComponent } from './send-reward/send-reward.component';
 import { ApproveRewardComponent } from './approve-reward/approve-reward.component';
 import { DashboardService } from '../shared/dashboard.service';
 import { CardManagementService } from '../shared/card-management.service';
+import { CardCalculationsService } from '../shared/card-calculations.service';
 
 
 @Component({
@@ -17,11 +18,14 @@ export class DashboardComponent implements OnInit {
   dashboardInfo: any;
   pendingReceiptCards: any;
   pendingApprovalCards: any;
+  progress: number;
+  totalSets: number;
+
   user: any;
   isManager: boolean;
   loading = true;
 
-  constructor(public dialog: MdDialog, public cardManagementService: CardManagementService, private dashboardService: DashboardService) { }
+  constructor(public dialog: MdDialog, public cardManagementService: CardManagementService, private dashboardService: DashboardService, private cardCalculationsService: CardCalculationsService) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('loggedIn'));
@@ -43,10 +47,18 @@ export class DashboardComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         this.recalculateLetters();
+        this.recalculateProgress();
+        this.recalculateTotalSets();
       })
     });
+  }
 
-    
+  recalculateProgress() {
+    this.progress = this.cardCalculationsService.calculateProgress(this.dashboardInfo, this.totalSets);
+  }
+
+  recalculateTotalSets() {
+    this.totalSets = this.cardCalculationsService.calculateTotalSets(this.dashboardInfo);
   }
 
   recalculateLetters() {

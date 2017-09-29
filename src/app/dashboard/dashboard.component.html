@@ -2,7 +2,7 @@
 </div> 
 <div *ngIf="!loading" class="row mt-5">
     <div class="col-md-7 d-flex justify-content-center flex-column">
-        <app-user-rewards-inventory [dashboardInfo]="dashboardInfo" class="align-self-center"></app-user-rewards-inventory>
+        <app-user-rewards-inventory [progress]="progress" [dashboardInfo]="dashboardInfo" class="align-self-center"></app-user-rewards-inventory>
         <div class="specials align-self-center">
             <h6 class="text-center">September Specials</h6>
             <ul class="list-unstyled">
@@ -11,12 +11,12 @@
             </ul>
         </div>
     </div>
-    <div class="col-md-5 d-flex flex-column justify-content-around">
-        <button [disabled]="dashboardInfo.UnclaimedCards === 0" type="button" md-raised-button class="modal-btn w-75" (click)="openMyInboxModal()">
+    <div class="col-md-5 d-flex flex-column justify-content-center">
+        <button [disabled]="dashboardInfo.UnclaimedCards === 0" type="button" md-raised-button class="modal-btn mb-5 w-75" (click)="openMyInboxModal()">
             <h5>My Inbox</h5> 
             <p class="mb-0">You have <span>{{dashboardInfo.UnclaimedCards}}</span> Pending Rewards Cards</p>
         </button>
-        <button type="button" md-raised-button class="modal-btn w-75" (click)="openSendRewardModal()">Send Reward</button>
+        <button type="button" md-raised-button class="modal-btn mb-5 w-75" (click)="openSendRewardModal()">Send Reward</button>
         <button *ngIf="isManager" [disabled]="dashboardInfo.UnapprovedCards === 0" type="button" md-raised-button class="modal-btn w-75" (click)="openApproveRewardModal()">
             <h5>Approve Rewards</h5>
             <p class="mb-0">You have <span>{{dashboardInfo.UnapprovedCards}}</span> Cards Pending Approval</p>
