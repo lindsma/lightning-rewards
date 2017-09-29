@@ -30,7 +30,6 @@ export class UserRewardsInventoryComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('closed!');
       this.test = result;
     })
   }

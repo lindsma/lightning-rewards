@@ -1,6 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+
 import { CardManagementService } from '../../shared/card-management.service';
+import { DashboardComponent } from '../dashboard.component';
+
+
+
 
 @Component({
   selector: 'app-reward-inbox',
@@ -8,6 +13,7 @@ import { CardManagementService } from '../../shared/card-management.service';
   styleUrls: ['./reward-inbox.component.scss']
 })
 export class RewardInboxComponent implements OnInit {
+  @Input() dashboardInfo: any;
 
   scratched = false;
   currentCard: any;
@@ -30,7 +36,7 @@ export class RewardInboxComponent implements OnInit {
   scratch() {
     this.scratched = true;
     this.cardManagementService.claimCard(this.currentCard.Id, this.headers).subscribe(res => {
-      console.log(true);
+      this.dashboardInfo.UnclaimedCards --;
     });
   }
 

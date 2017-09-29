@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
     } else {
       this.welcomed = true;
       if (this.router.url === '/') {
-        console.log('in');
         this.router.navigate(['/dashboard']);
       }
     }
@@ -38,7 +37,7 @@ export class AppComponent implements OnInit {
 
     this.usersService.login(this.user, this.headers).subscribe(res => {
       this.welcomed = true;
-      localStorage.setItem('loggedIn', JSON.stringify(res));
+      localStorage.setItem('loggedIn', JSON.stringify(res.Id));
       this.router.navigate(['/dashboard']);
     });
   }
