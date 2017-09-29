@@ -15,12 +15,11 @@ import { CardManagementService } from '../shared/card-management.service';
 })
 export class DashboardComponent implements OnInit {
   dashboardInfo: any;
-  test: string;
   pendingReceiptCards: any;
+  pendingApprovalCards: any;
   user: any;
   isManager: boolean;
   loading = true;
-  
 
   constructor(public dialog: MdDialog, public cardManagementService: CardManagementService, private dashboardService: DashboardService) { }
 
@@ -41,10 +40,6 @@ export class DashboardComponent implements OnInit {
         width: '500px', 
         data: this.pendingReceiptCards
       });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        this.test = result;
-      })
     });
   }
 
@@ -52,20 +47,16 @@ export class DashboardComponent implements OnInit {
     let dialogRef = this.dialog.open(SendRewardComponent, {
       width: '500px'
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.test = result;
-    })
   }
 
   openApproveRewardModal() {
-    let dialogRef = this.dialog.open(ApproveRewardComponent, {
-      width: '500px', 
-      data: { test: 'test string', name: 'lindsey'}
-    });
+    this.cardManagementService.getPendingApprovalCardDetails(this.user.Id).subscribe(res => {
+      this.pendingApprovalCards = res;
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.test = result;
+      let dialogRef = this.dialog.open(ApproveRewardComponent, {
+        width: '500px', 
+        data: this.pendingApprovalCards
+      });
     })
   }
 
