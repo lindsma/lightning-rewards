@@ -2,14 +2,19 @@
 
 .header {
     height: 50px;
-    background: linear-gradient($primary, white);
+    background: $third;
+    color: white;
 }
 
 .brand {
     font-size: 18pt;
-    color: $fourth;
+    color: white;
 }
 
 .fa-bolt {
+    color: $primary;
+}
+
+.custom-btn {
     color: $fourth;
 }
