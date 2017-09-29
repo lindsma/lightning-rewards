@@ -12,12 +12,12 @@
   }
 
 .splash {
-    background: linear-gradient($primary, white);
+    background: $third;
     width: 350px;
     height: 275px;
     padding: 30px;
     margin: 50px auto;
     flex-direction: column;
-    color: $third;
+    color: white;
     position: relative;
 }
