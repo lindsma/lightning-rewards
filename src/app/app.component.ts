@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     password: 'training'
   }
 
-  welcomed: boolean
+  welcomed: boolean;
 
   headers = {
     'Content-Type': 'application/json',
@@ -37,7 +37,11 @@ export class AppComponent implements OnInit {
 
     this.usersService.login(this.user, this.headers).subscribe(res => {
       this.welcomed = true;
-      localStorage.setItem('loggedIn', JSON.stringify(res.Id));
+      const loggedIn = {
+        Id: res.Id,
+        IsManager: res.IsManager
+      }
+      localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
       this.router.navigate(['/dashboard']);
     });
   }
