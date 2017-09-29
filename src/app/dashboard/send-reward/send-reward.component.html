@@ -3,23 +3,23 @@
     <div class="form d-flex justify-content-center align-items-center flex-column">
       <md-form-field class="w-75">
         <label for="recipient">Recipient</label>
-        <input mdInput id="recipient" type="text">
+        <input mdInput [(ngModel)]="receiverId" name="recipient" id="recipient" type="text">
       </md-form-field>
       <md-form-field class="w-75">
         <label for="message">Message</label>
-        <textarea mdInput id="message"></textarea>
+        <textarea mdInput [(ngModel)]="message" name="message" id="message"></textarea>
       </md-form-field>
       <div class="w-75">
         <label for="manager">Manager for Approval</label>
-        <md-select class="w-100" name="manager" id="manager">
-          <md-option value="Dave Long">Dave Long</md-option>
+        <md-select class="w-100" name="manager" [(ngModel)]="selectedManager" id="manager">
+          <md-option *ngFor="let manager of managers" [value]="manager.Id">{{manager.Name}}</md-option>
         </md-select>
       </div>
     </div>
   </md-dialog-content>
 <md-dialog-actions class="d-flex justify-content-center mt-3">
   <button md-button md-dialog-close>Close</button>
-  <button md-button>
+  <button (click)="sendReward()" md-button>
       <a>Send for Approval</a>
     </button> 
 </md-dialog-actions>

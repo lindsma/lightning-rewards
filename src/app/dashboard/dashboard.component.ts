@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('loggedIn'));
-    this.dashboardService.getDashboardInfo(this.user.Id).subscribe(res => { 
+    this.dashboardService.getDashboardInfo(this.user).subscribe(res => { 
       this.dashboardInfo = res;
       this.loading = false;
     });

@@ -16,15 +16,15 @@ export class UsersService {
   }
 
   getAllManagers(): Observable<any> {
-    return this.http.get('http://lightningrewards.azurewebsites.net/api/Users/Managers').do(res => {
-      console.log(res);
-    })
+    return this.http.get('http://lightningrewards.azurewebsites.net/api/Users/Managers')
+    .map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
   getUsersFromAutocompleteQuery(): Observable<any> {
-    return this.http.get('http://lightningrewards.azurewebsites.net/api/Users/Autocomplete').do(res => {
-      console.log(res);
-    })
+    return this.http.get('http://lightningrewards.azurewebsites.net/api/Users/Autocomplete')
+    .map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
   }
 
 }
