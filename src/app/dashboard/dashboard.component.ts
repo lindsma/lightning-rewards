@@ -45,10 +45,11 @@ export class DashboardComponent implements OnInit {
         data: this.pendingReceiptCards
       });
       dialogRef.afterClosed().subscribe(result => {
-        this.recalculateLetters();
-        console.log(this.dashboardInfo);
-        this.recalculateTotalSets();
-        this.recalculateProgress();
+        window.location.reload();
+        //this.recalculateLetters();
+        //console.log(this.dashboardInfo);
+        //this.recalculateTotalSets();
+        //this.recalculateProgress();
       })
     });
   }
