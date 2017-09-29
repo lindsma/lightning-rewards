@@ -59,6 +59,11 @@ export class AppComponent implements OnInit {
     this.welcomed = false;
     localStorage.removeItem('loggedIn');
     this.router.navigate(['/']);
+
+    this.user = {
+      email: '',
+      password: ''
+    }
   }
 
 }
