@@ -12,12 +12,12 @@
             <label for="password" class="mb-0">password</label>
             <input id="password" type="password" placeholder="********">
         </div>
-        <button md-raised-button (click)="login()" type="submit" class="align-self-center mr-3">
+        <button md-raised-button (click)="login()" type="submit" class="align-self-center mr-3 custom-btn">
             <a class="align-self-center"><i class="fa fa-bolt mr-2" aria-hidden="true"></i>Login</a>
         </button>
     </div>
     <div class="form d-flex d-row ml-auto p-2" *ngIf="welcomed">
-        <button md-raised-button class="d-flex align-items-center mr-3" (click)="logout()">
+        <button md-raised-button class="d-flex align-items-center mr-3 custom-btn" (click)="logout()">
             <a class="align-self-center"><i class="fa fa-bolt mr-2" aria-hidden="true"></i>Logout</a>
         </button>
     </div>
