@@ -3,7 +3,12 @@
     <div class="form d-flex justify-content-center align-items-center flex-column">
       <md-form-field class="w-75">
         <label for="recipient">Recipient</label>
-        <input mdInput [(ngModel)]="receiverId" name="recipient" id="recipient" type="text">
+        <input #recipient (keyup)="autocomplete(recipient.value)" type="text" mdInput name="recipient" [mdAutocomplete]="auto">
+        <md-autocomplete  #auto="mdAutocomplete">
+            <md-option (click)="selectedRecipient = option.Id" *ngFor="let option of filteredOptions" [value]="option.Name">
+              {{ option.Name }}
+            </md-option>
+        </md-autocomplete>
       </md-form-field>
       <md-form-field class="w-75">
         <label for="message">Message</label>
@@ -19,7 +24,7 @@
   </md-dialog-content>
 <md-dialog-actions class="d-flex justify-content-center mt-3">
   <button md-button md-dialog-close>Close</button>
-  <button (click)="sendReward()" md-button>
+  <button (click)="sendReward(selectedOption)" md-button>
       <a>Send for Approval</a>
     </button> 
 </md-dialog-actions>

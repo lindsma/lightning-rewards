@@ -19,6 +19,8 @@ export class SendRewardComponent implements OnInit {
   managerId: number;
   managers = [];
   selectedManager: any;
+  selectedRecipient: any;
+  filteredOptions = [];
 
   constructor(public dialogRef: MdDialogRef<SendRewardComponent>, @Inject(MD_DIALOG_DATA) public data: any, public cardManagementService: CardManagementService, public usersService: UsersService) { }
 
@@ -31,19 +33,24 @@ export class SendRewardComponent implements OnInit {
     
   }
 
-  sendReward() { 
-    console.log(this.selectedManager);
+  autocomplete(inputValue: string) {
+    this.usersService.getUsersFromAutocompleteQuery(inputValue).subscribe(res => {
+      this.filteredOptions = res;
+    });
     
+  }
+
+  sendReward() { 
     const card = {
       message: this.message,
       senderId: this.senderId,
-      receiverId: this.receiverId,
+      receiverId: this.selectedRecipient,
       managerId: this.selectedManager
     }
 
-    // this.cardManagementService.sendCard(card).subscribe(res => {
-    //   this.dialogRef.close();
-    // });
+    this.cardManagementService.sendCard(card).subscribe(res => {
+      this.dialogRef.close();
+    });
     
   }
 
