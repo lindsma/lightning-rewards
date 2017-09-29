@@ -40,6 +40,18 @@ export class DashboardComponent implements OnInit {
         width: '500px', 
         data: this.pendingReceiptCards
       });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.recalculateLetters();
+      })
+    });
+
+    
+  }
+
+  recalculateLetters() {
+    this.dashboardService.getDashboardInfo(this.user.Id).subscribe(res => { 
+      this.dashboardInfo = res;
     });
   }
 
