@@ -32,7 +32,8 @@ export class UserRewardsInventoryComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.calculateTotalSets();
+      window.location.reload();
+      //this.calculateTotalSets();
     })
   }
 
