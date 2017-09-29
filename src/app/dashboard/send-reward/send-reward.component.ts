@@ -29,7 +29,7 @@ export class SendRewardComponent implements OnInit {
       this.managers = res;
     });
 
-    this.senderId = JSON.parse(localStorage.getItem('loggedIn'));
+    this.senderId = JSON.parse(localStorage.getItem('loggedIn')).Id;
     
   }
 
