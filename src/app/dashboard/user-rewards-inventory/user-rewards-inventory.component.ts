@@ -11,13 +11,16 @@ import { DashboardComponent } from '../dashboard.component';
 })
 export class UserRewardsInventoryComponent implements OnInit {
 
-  @Input() dashboardInfo: DashboardComponent;
+  @Input() dashboardInfo: any;
   test: string;
+  totalSets: number;
+  progress: number;
 
   constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
-    console.log(this.dashboardInfo);
+    this.calculateTotalSets();
+    this.calculateProgress();
   }
 
   openRedeemRewardsModal() {
@@ -34,6 +37,18 @@ export class UserRewardsInventoryComponent implements OnInit {
 
   calculateProgress() {
 
+  }
+
+  calculateTotalSets() {
+    let countArray = [];
+
+    for (var letter in this.dashboardInfo.Letters) {
+      countArray.push(this.dashboardInfo.Letters[letter]);
+    }
+
+    this.totalSets = countArray.reduce((a, b) => {
+      return Math.min(a, b);
+    });
   }
 
 }
