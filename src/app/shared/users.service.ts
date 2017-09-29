@@ -21,8 +21,8 @@ export class UsersService {
     .catch(e => Observable.throw(e.json().errors));
   }
 
-  getUsersFromAutocompleteQuery(): Observable<any> {
-    return this.http.get('http://lightningrewards.azurewebsites.net/api/Users/Autocomplete')
+  getUsersFromAutocompleteQuery(query: any): Observable<any> {
+    return this.http.get(`http://lightningrewards.azurewebsites.net/api/Users/Autocomplete?query=${query}`)
     .map(res => res.json())
     .catch(e => Observable.throw(e.json().errors));
   }
