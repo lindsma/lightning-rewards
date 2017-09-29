@@ -10,7 +10,7 @@ import { UsersService } from './shared/users.service';
 export class AppComponent implements OnInit {
   user = {
     email: '',
-    password: 'training'
+    password: ''
   }
 
   welcomed: boolean;
@@ -35,15 +35,20 @@ export class AppComponent implements OnInit {
 
   login() {
 
-    this.usersService.login(this.user, this.headers).subscribe(res => {
-      this.welcomed = true;
-      const loggedIn = {
-        Id: res.Id,
-        IsManager: res.IsManager
-      }
-      localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
-      this.router.navigate(['/dashboard']);
-    });
+    if (this.user.password === 'training') {
+      this.usersService.login(this.user, this.headers).subscribe(res => {
+        this.welcomed = true;
+        const loggedIn = {
+          Id: res.Id,
+          IsManager: res.IsManager
+        }
+        localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
+        this.router.navigate(['/dashboard']);
+      });
+    } else {
+      console.log('incorrect password');
+    }
+    
   }
 
   logout() {
