@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 import { RewardInboxComponent } from './reward-inbox/reward-inbox.component';
@@ -14,12 +14,12 @@ import { CardManagementService } from '../shared/card-management.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  dashboardInfo: any;
   test: string;
   pendingReceiptCards: any;
   user: any;
-  dashboardInfo: any;
   loading = true;
+  
 
   constructor(public dialog: MdDialog, public cardManagementService: CardManagementService, private dashboardService: DashboardService) { }
 

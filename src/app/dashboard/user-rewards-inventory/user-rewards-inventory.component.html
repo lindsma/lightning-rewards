@@ -3,27 +3,27 @@
 <div class="relias-letters mt-5 d-flex w-75 justify-content-between">
   <div>
     <div class="letter">R</div>
-    <div class="letter-count">x 3</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.R}}</div>
   </div>
   <div>
     <div class="letter">E</div>
-    <div class="letter-count">x 3</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.E}}</div>
   </div>
   <div>
     <div class="letter">L</div>
-    <div class="letter-count">x 3</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.L}}</div>
   </div>
   <div>
     <div class="letter">I</div>
-    <div class="letter-count">x 3</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.I}}</div>
   </div>
   <div>
     <div class="letter">A</div>
-    <div class="letter-count">x 3</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.A}}</div>
   </div>
   <div>
     <div class="letter">S</div>
-    <div class="letter-count">x 3</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.S}}</div>
   </div>
 </div>
-<button md-raised-button class="my-5" (click)="openRedeemRewardsModal()">Redeem Rewards (2)</button>
+<button md-raised-button class="my-5" (click)="openRedeemRewardsModal()">Redeem Rewards ({{totalSets}})</button>
