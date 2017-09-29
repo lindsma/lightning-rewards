@@ -7,7 +7,7 @@
       </md-panel-title>
     </md-expansion-panel-header>
     <div class="d-flex flex-column">
-      <p>To: </p>
+      <p>To: {{card.ReceiverName}}</p>
       <p>{{card.Message}}</p>
       <button md-button (click)="approveIndividual(card)" class="align-self-end">Approve</button>
     </div>

@@ -44,11 +44,11 @@ export class DashboardComponent implements OnInit {
         width: '500px', 
         data: this.pendingReceiptCards
       });
-
       dialogRef.afterClosed().subscribe(result => {
         this.recalculateLetters();
-        this.recalculateProgress();
+        console.log(this.dashboardInfo);
         this.recalculateTotalSets();
+        this.recalculateProgress();
       })
     });
   }
@@ -81,7 +81,9 @@ export class DashboardComponent implements OnInit {
         width: '500px', 
         data: this.pendingApprovalCards
       });
+      dialogRef.afterClosed().subscribe(result => {
+        this.recalculateLetters();
+      })
     })
   }
-
 }
