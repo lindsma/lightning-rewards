@@ -12,11 +12,11 @@
         </div>
     </div>
     <div class="col-md-5 d-flex flex-column justify-content-around">
-        <button type="button" md-raised-button class="modal-btn w-75" (click)="openMyInboxModal()">
+        <button [disabled]="dashboardInfo.UnclaimedCards === 0" type="button" md-raised-button class="modal-btn w-75" (click)="openMyInboxModal()">
             <h5>My Inbox</h5> 
             <p class="mb-0">You have <span>{{dashboardInfo.UnclaimedCards}}</span> Pending Rewards Cards</p>
         </button>
         <button type="button" md-raised-button class="modal-btn w-75" (click)="openSendRewardModal()">Send Reward</button>
-        <button type="button" md-raised-button class="modal-btn w-75" (click)="openApproveRewardModal()">Approve Rewards</button>
+        <button *ngIf="isManager" type="button" md-raised-button class="modal-btn w-75" (click)="openApproveRewardModal()">Approve Rewards</button>
     </div>
 </div>

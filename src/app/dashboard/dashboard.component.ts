@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   test: string;
   pendingReceiptCards: any;
   user: any;
+  isManager: boolean;
   loading = true;
   
 
@@ -25,14 +26,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('loggedIn'));
-    this.dashboardService.getDashboardInfo(this.user).subscribe(res => { 
+    this.isManager = this.user.IsManager;
+    
+    this.dashboardService.getDashboardInfo(this.user.Id).subscribe(res => { 
       this.dashboardInfo = res;
       this.loading = false;
     });
   }
 
   openMyInboxModal() {
-    this.cardManagementService.getPendingReceiptCardDetails(JSON.parse(localStorage.getItem('loggedIn')).Id).subscribe(res => {
+    this.cardManagementService.getPendingReceiptCardDetails(this.user.Id).subscribe(res => {
       this.pendingReceiptCards = res;
       let dialogRef = this.dialog.open(RewardInboxComponent, {
         width: '500px', 
