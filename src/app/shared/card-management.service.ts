@@ -28,6 +28,11 @@ export class CardManagementService {
     .catch(e => Observable.throw(e.json().errors));
   }
 
+  approveAllCards(managerId: any, headers: any): Observable<any> {
+    return this.http.put(`http://lightningrewards.azurewebsites.net/api/Cards/Approve/All?managerId=${managerId}`, headers).map(res => res.json())
+    .catch(e => Observable.throw(e.json().errors));
+  }
+
   sendCard(card: any): Observable<any> {
     return this.http.post('http://lightningrewards.azurewebsites.net/api/Cards', card).map(res => res.json())
     .catch(e => Observable.throw(e.json().errors));

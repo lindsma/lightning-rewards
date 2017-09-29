@@ -1,19 +1,19 @@
 <h2 md-dialog-title>Approve Rewards</h2>
 <md-dialog-content>
-  <md-expansion-panel class="mb-1">
+  <md-expansion-panel *ngFor="let card of cards" class="mb-1">
     <md-expansion-panel-header>
       <md-panel-title>
-        <p class="mb-0">Lindsey Adams</p>
+        <p class="mb-0">{{card.SenderName}}</p>
       </md-panel-title>
     </md-expansion-panel-header>
     <div class="d-flex flex-column">
-      <p>To: Nick Anderson</p>
-      <p>This is my message to the recipient</p>
-      <button md-button class="align-self-end">Approve</button>
+      <p>To: </p>
+      <p>{{card.Message}}</p>
+      <button md-button (click)="approveIndividual(card)" class="align-self-end">Approve</button>
     </div>
   </md-expansion-panel>
 </md-dialog-content>
 <md-dialog-actions class="d-flex justify-content-center">
   <button md-button md-dialog-close>Close</button>
-  <button md-button>Approve All</button>
+  <button md-button (click)="approveAll()">Approve All</button>
 </md-dialog-actions>
