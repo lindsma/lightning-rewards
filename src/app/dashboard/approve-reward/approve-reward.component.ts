@@ -26,7 +26,12 @@ export class ApproveRewardComponent implements OnInit {
   }
 
   approveIndividual(card: any) {
-    this.cardManagementService.approveCard(card.Id, this.headers).subscribe();
+    this.cardManagementService.approveCard(card.Id, this.headers).subscribe(res => {
+      var index = this.cards.indexOf(card, 0);
+      if(index > -1){
+        this.cards.splice(index, 1);
+      }
+    });
   }
 
   approveAll() {

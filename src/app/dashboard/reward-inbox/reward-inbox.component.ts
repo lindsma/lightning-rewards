@@ -35,9 +35,7 @@ export class RewardInboxComponent implements OnInit {
 
   scratch() {
     this.scratched = true;
-    this.cardManagementService.claimCard(this.currentCard.Id, this.headers).subscribe(res => {
-      this.dashboardInfo.UnclaimedCards --;
-    });
+    this.cardManagementService.claimCard(this.currentCard.Id, this.headers).subscribe();
   }
 
   nextCard() {
