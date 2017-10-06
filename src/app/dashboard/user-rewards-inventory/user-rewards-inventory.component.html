@@ -1,0 +1,29 @@
+<h6>You're <span>{{progress}}%</span> to Your Next RELIAS Set!</h6>
+<md-progress-bar value="{{progress}}" class="w-75 mt-4"></md-progress-bar>
+<div class="relias-letters mt-5 d-flex w-75 justify-content-between">
+  <div>
+    <div class="letter">R</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.R || 0}}</div>
+  </div>
+  <div>
+    <div class="letter">E</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.E || 0}}</div>
+  </div>
+  <div>
+    <div class="letter">L</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.L || 0}}</div>
+  </div>
+  <div>
+    <div class="letter">I</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.I || 0}}</div>
+  </div>
+  <div>
+    <div class="letter">A</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.A || 0}}</div>
+  </div>
+  <div>
+    <div class="letter">S</div>
+    <div class="letter-count">x {{dashboardInfo.Letters.S || 0}}</div>
+  </div>
+</div>
+<button md-raised-button [disabled]="totalSets === 0" class="my-5" (click)="openRedeemRewardsModal()">Redeem Rewards ({{totalSets}})</button>

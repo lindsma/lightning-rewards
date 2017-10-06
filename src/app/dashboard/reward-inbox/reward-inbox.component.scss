@@ -1,0 +1,60 @@
+h2 span {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.reward-card {
+    border: 2px solid green;
+    height: 225px;
+    width: 350px;
+}
+
+.reward-header {
+    background: green;
+    height: 40px;
+
+    h6 {
+        color: white;
+        line-height: 40px;
+        letter-spacing: .1em;
+    }
+}
+
+.reveal {
+    height: 20px;
+
+    span {
+        font-size: 12px;
+        display: none;
+        
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.letter-reveal .pre-scratch, 
+.letter-reveal .post-scratch {
+    height: 25px;
+    width: 150px;
+}
+
+.pre-scratch {
+    background: grey;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.post-scratch {
+    border: 2px solid black;
+    display: none;
+
+    &.active {
+        display: flex;
+        justify-content: center;
+    }
+}
+

@@ -1,0 +1,37 @@
+@import '../scss/variables.scss';
+
+.header {
+    height: 80px;
+    background: $third;
+    color: white;
+}
+
+.brand {
+    font-size: 18pt;
+    color: white;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+
+    .fa {
+        font-size: 40px;
+    }  
+}
+
+.fa-bolt {
+    color: $primary;
+}
+
+.custom-btn {
+    color: $fourth;
+    height: 40px;
+}
+
+#email {
+    width: 220px;
+}
+
+#password {
+    width: 100px;
+}

@@ -1,0 +1,32 @@
+<h2 md-dialog-title>Send Reward</h2>
+  <md-dialog-content>
+    <div class="form d-flex justify-content-center align-items-center flex-column">
+      <md-form-field class="w-75">
+        <label for="recipient">Recipient</label>
+        <input #recipient (keyup)="autocomplete(recipient.value)" type="text" mdInput name="recipient" [mdAutocomplete]="auto">
+        <md-autocomplete  #auto="mdAutocomplete">
+            <md-option (click)="selectedRecipient = option.Id" *ngFor="let option of filteredOptions" [value]="option.Name">
+              {{ option.Name }}
+            </md-option>
+        </md-autocomplete>
+      </md-form-field>
+      <md-form-field class="w-75">
+        <label for="message">Message</label>
+        <textarea mdInput [(ngModel)]="message" name="message" id="message"></textarea>
+      </md-form-field>
+      <div class="w-75">
+        <label for="manager">Manager for Approval</label>
+        <md-select class="w-100" name="manager" [(ngModel)]="selectedManager" id="manager">
+          <md-option *ngFor="let manager of managers" [value]="manager.Id">{{manager.Name}}</md-option>
+        </md-select>
+      </div>
+    </div>
+  </md-dialog-content>
+<md-dialog-actions class="d-flex justify-content-center mt-3">
+  <button md-button md-dialog-close>Close</button>
+  <button (click)="sendReward()" md-button>
+      <a>Send for Approval</a>
+    </button> 
+</md-dialog-actions>
+
+

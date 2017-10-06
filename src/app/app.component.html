@@ -1,0 +1,27 @@
+<div class="header d-flex justify-content-between">
+    <h2 class="ml-2 d-flex align-self-center align-items-center brand pt-1 pl-4">
+        <i class="fa fa-bolt mr-2" aria-hidden="true"></i>
+        Lightning Rewards
+    </h2>
+    <div class="d-flex align-items-center mr-3" *ngIf="!welcomed">
+        <div class="email pl-3 px-0">
+            <label for="email" class="mb-0 mr-2">email</label>
+            <input id="email" [(ngModel)]="user.email" type="text" name="email" placeholder="your-email@email.com">
+        </div>
+        <div class="password pl-3 px-3 mr-3">
+            <label for="password" class="mb-0 mr-2">password</label>
+            <input id="password" [(ngModel)]="user.password" type="password" placeholder="********">
+        </div>
+        <button md-raised-button (click)="login()" type="submit" class="align-self-center mr-3 custom-btn">
+            <a class="align-self-center"><i class="fa fa-bolt mr-2" aria-hidden="true"></i>Login</a>
+        </button>
+    </div>
+    <div class="d-flex justify-content-center mr-3 form p-2" *ngIf="welcomed">
+        <p class="mb-0 mr-4 align-self-center">hello, {{name}}!</p>
+        <button md-raised-button class="d-flex align-self-center align-items-center mr-3 custom-btn" (click)="logout()">
+            <a class="align-self-center"><i class="fa fa-bolt mr-2" aria-hidden="true"></i>Logout</a>
+        </button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
