@@ -8,7 +8,7 @@ export class DashboardService {
   constructor(private http: Http) { }
 
   getDashboardInfo(userId: number): Observable<any> {
-    return this.http.get(`http://lightningrewards.azurewebsites.net/api/Dashboard?userId=${userId}`)
+    return this.http.get(`https://lightningrewards.azurewebsites.net/api/Dashboard?userId=${userId}`)
     .map(res => res.json())
     .catch(e => Observable.throw(e.json().errors));
   }
